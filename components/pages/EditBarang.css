@@ -1,0 +1,43 @@
+.edit-barang {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.edit-barang form {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-barang input,
+.edit-barang textarea,
+.edit-barang button {
+  margin: 10px 0;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.editBtn {
+  background-color: #008cba;
+  color: #fff;
+  cursor: pointer;
+}
+
+.editBtn:hover {
+  background-color: #007ba7;
+}
+
+.backBtn {
+  background-color: red;
+  color: #fff;
+  cursor: pointer;
+}
+
+.backBtn:hover {
+  background-color: #8b0000;
+}
