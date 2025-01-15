@@ -333,6 +333,35 @@ app.post('/api/carts', async (req, res) => {
     }
 });
 
+// GET endpoint for cart items by user ID
+app.get('/api/cart/:userId', async (req, res) => {
+    const userId = req.params.userId;
+    try {
+        const results = await queryDatabase(`
+            SELECT 
+                CartItem.cart_item_id,
+                CartItem.quantity,
+                Product.product_id,
+                Product.name,
+                Product.price,
+                Product.image,
+                Product.description
+            FROM CartItem
+            JOIN Cart ON CartItem.cart_id = Cart.cart_id
+            JOIN Product ON CartItem.product_id = Product.product_id
+            WHERE Cart.user_id = ?
+        `, [userId]);
+
+        res.status(200).json(results);
+    } catch (err) {
+        res.status(500).json({
+            status: 'error',
+            message: 'Failed to fetch cart items',
+            error: err.message
+        });
+    }
+});
+
 // CartItem endpoint
 app.post('/api/cart-items', async (req, res) => {
     const { cart_id, product_id, quantity } = req.body;

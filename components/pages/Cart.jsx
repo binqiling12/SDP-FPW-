@@ -18,7 +18,7 @@ const Cart = () => {
 
   const fetchCartItems = async (userId) => {
     try {
-      const response = await fetch(`${API_URL}/cart/${userId}`, {
+      const response = await fetch(`${API_URL}/api/cart/${userId}`, {
         credentials: 'include',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('userId')}`, // Optional: if you implement token-based auth
